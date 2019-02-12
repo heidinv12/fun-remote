@@ -1,6 +1,9 @@
 # Summary
 This project takes advantage of the python libraries PySerial and Pyautogui to interface with arduino through serial communication and replace certain keyboard keys. With the use of an infrared receiver, I can now use a control remote to interact with the computer and select/open/close applications as well as access anything online.
 
+For more information on PySerial check the documentation page: https://pythonhosted.org/pyserial/
+For more information on Pyautogui cheak the following link: https://pyautogui.readthedocs.io/en/latest/
+
 **Demo**
 
 https://www.youtube.com/watch?v=THrF9m3o-4Q&feature=youtu.be
