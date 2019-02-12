@@ -27,36 +27,32 @@ num = {
 
 
 # gets the signal and removes spaces
-def getInput():
-    input = str(conn.readline())
-    clean_input = input.strip()
-    print
-    clean_input
+def get_input():
+    clean_input = str(conn.readline()).strip()
+    print(clean_input)
 
     return clean_input
 
 
 # select an action depending on the signal input
-def runProcess():
+def run_process():
     while True:
-        clean_input = getInput()
+        clean_input = get_input()
         try:
             # * button = WinKey, accesses task-bar apps
             if 'C101E57B' in clean_input:
                 flag = True
                 while flag:
-                    print
-                    "Input app position in taskbar"
-                    taskvar = getInput()
+                    print("Input app position in tool-bar")
+                    task_var = get_input()
                     try:
-                        if taskvar:
-                            pyautogui.hotkey('win', num[taskvar])
+                        if task_var:
+                            pyautogui.hotkey('win', num[task_var])
                             flag = False
                         else:
                             continue
                     except KeyError:
-                        print
-                        "KeyError " + taskvar
+                        print("KeyError " + task_var)
                         continue
             # 0 button = esc
             if '97483BFB' in clean_input:
@@ -67,6 +63,9 @@ def runProcess():
             # go to home of browser if button 2 is pressed
             if '511DBB' in clean_input:
                 pyautogui.press('browserhome')
+            # pick favourite list if 3 is pressed
+            if 'EE886D7F' in clean_input:
+                pyautogui.press('browserfavorites')
             # 5 button = space bar
             if 'D7E84B1B' in clean_input:
                 pyautogui.press('space')
@@ -89,12 +88,11 @@ def runProcess():
             if '449E79F' in clean_input:
                 pyautogui.press('right')
 
-        except Exception:
-            print
-            clean_input
+        except Exception as e:
+            print(e + ' - ' +clean_input)
             continue
-        input = ''
+        clean_input = ''
 
 
 if __name__ == "__main__":
-    runProcess()
+    run_process()
